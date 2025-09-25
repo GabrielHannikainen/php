@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+    <?php
+    date_default_timezone_set('Europe/Tallinn');
+    echo "Praegu on " . date('d.F.Y') . "<br>";
+    echo "Kellaaeg on " . date("h:i:sa") . "<br>";
+
+    $vanus = "2008-06-24";
+    $kuupaev = date("Y-m-d");
+    $hetkenevanus = new DateTime($vanus);
+    $hetkenekuup = new DateTime($kuupaev);
+    $vahe = $hetkenekuup->diff($hetkenevanus);
+    $aasta = $vahe->y;
+    $kuu = $vahe->m;
+    $päev = $vahe->d;
+
+    echo "Vanus: $aasta aastat, $kuu kuud ja $päev päeva.". "<br>";
+    ?>
+
+    <?php
+
+    $tana = new DateTime("2025-09-19");
+    $kooliaastalopp = new DateTime("2026-05-31");
+
+    $vahe = $tana->diff($kooliaastalopp);
+    $paevadeArv = $vahe->days;
+
+    echo "Käesoleva kooliaasta lõpuni on jäänud $paevadeArv päeva!";
+
+    ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>
